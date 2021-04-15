@@ -1,0 +1,16 @@
+@import "../scss/settings/reset";
+@import "../scss/settings/fonts";
+
+.artist-name {
+  margin-top: 100px;
+  margin-left: 75px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  font-family: $font-r;
+  text-transform: uppercase;
+  font-size: 180px;
+  color: rgba(59, 19, 7, 0.897);
+  opacity: 0.9;
+}

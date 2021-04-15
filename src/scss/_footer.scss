@@ -1,0 +1,17 @@
+@import "../scss/settings/fonts";
+
+.footer {
+  display: flex;
+  justify-content: center;
+
+  img {
+    width: 10px;
+    height: 10px;
+    color: whitesmoke;
+  }
+  p {
+    color: whitesmoke;
+    font-family: $font-r;
+    font-size: 10px;
+  }
+}
