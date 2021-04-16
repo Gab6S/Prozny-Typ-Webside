@@ -1,0 +1,33 @@
+@import "../scss/settings/fonts";
+
+.about-me {
+  padding: 50px 320px;
+  display: flex;
+
+  .vertical-name {
+    font-family: $font-r;
+    font-size: 80px;
+    font-weight: 800;
+    text-transform: uppercase;
+    // width: 1px;
+    // word-wrap: break-word;
+    // white-space: pre-wrap;
+    //text-orientation: upright;
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    letter-spacing: 5px;
+    color: whitesmoke;
+    text-shadow: 0 0 5px rgba(59, 19, 7, 0.897);
+  }
+
+  .about-text {
+    padding: 0 100px;
+    p {
+      text-transform: uppercase;
+      font-size: 19px;
+      line-height: 30px;
+      color: rgba(59, 19, 7, 0.897);
+      text-shadow: 0 0 0.5px rgb(167, 160, 160);
+    }
+  }
+}

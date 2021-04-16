@@ -1,0 +1,18 @@
+.music-section {
+  padding: 25px 200px;
+
+  .section {
+    display: flex;
+    padding: 25px 50px;
+
+    img {
+      width: 220px;
+      height: 220px;
+      margin: 25px;
+    }
+  }
+  .section-two,
+  .section-four {
+    flex-direction: row-reverse;
+  }
+}

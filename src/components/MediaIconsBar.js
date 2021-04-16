@@ -11,24 +11,56 @@ export const MediaIconsBar = () => {
   return (
     <div>
       <ul className="media-icons-bar">
-        <li className="single-media-icon">
-          <img src={email}></img>
-        </li>
-        <li className="single-media-icon">
-          <img src={instagram}></img>
-        </li>
-        <li className="single-media-icon">
-          <img src={fb}></img>
-        </li>
-        <li className="single-media-icon">
-          <img src={spotify}></img>
-        </li>
-        <li className="single-media-icon">
-          <img src={apple}></img>
-        </li>
-        <li className="single-media-icon">
-          <img src={yt}></img>
-        </li>
+        <a href="mailto: proznytyp@gmail.com">
+          <li className="single-media-icon">
+            <img src={email} alt="email icon"></img>
+          </li>
+        </a>
+        <a
+          href="https://www.instagram.com/proznytyp"
+          rel="noreferrer"
+          target="_blank"
+        >
+          <li className="single-media-icon">
+            <img src={instagram} alt="instagram icon"></img>
+          </li>
+        </a>
+        <a
+          href="https://www.facebook.com/proznytyp/"
+          rel="noreferrer"
+          target="_blank"
+        >
+          <li className="single-media-icon">
+            <img src={fb} alt="facebook icon"></img>
+          </li>
+        </a>
+        <a
+          href="https://open.spotify.com/artist/2aRfeF2WyFhLOLgzhOR0T4"
+          rel="noreferrer"
+          target="_blank"
+        >
+          <li className="single-media-icon">
+            <img src={spotify} alt="spotify icon"></img>
+          </li>
+        </a>
+        <a
+          href="https://music.apple.com/us/artist/pr%C3%B3%C5%BCny-typ/1512618324"
+          rel="noreferrer"
+          target="_blank"
+        >
+          <li className="single-media-icon">
+            <img src={apple} alt="apple icon"></img>
+          </li>
+        </a>
+        <a
+          href="https://www.youtube.com/channel/UCKm6ngdm2VcDKfc4M7LtJrA"
+          rel="noreferrer"
+          target="_blank"
+        >
+          <li className="single-media-icon">
+            <img src={yt} alt="youtube icon"></img>
+          </li>
+        </a>
       </ul>
     </div>
   );
