@@ -1,14 +1,80 @@
+@import "../scss/settings/fonts";
+
 .music-section {
   padding: 25px 200px;
+  margin-top: 25px;
+
+  .title {
+    font-size: 1.5em;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: rgb(255, 255, 255);
+    text-shadow: 0 0 5px rgba(59, 19, 7, 0.897);
+  }
+
+  .title-one,
+  .title-three {
+    text-align: right;
+    padding-right: 25px;
+  }
+
+  .title-two,
+  .title-four {
+    text-align: left;
+    padding-left: 48px;
+  }
 
   .section {
     display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 25px 50px;
+    // box-sizing: border-box;
 
-    img {
+    .image {
+      perspective: 3000px;
+      //width: 50%;
+      position: relative;
+      left: 5%;
+
+      transform: translate(-50%, -50%);
+      transform-style: preserve-3d;
+    }
+    .image img {
       width: 220px;
       height: 220px;
-      margin: 25px;
+      //margin: 25px;
+      position: relative;
+      left: 50%;
+      top: 50%;
+
+      transform: rotateX(70deg) rotateZ(-60deg) translate3d(-120px, 0px, 70px);
+      box-shadow: -80px 60px 15px 5px rgba(0, 0, 0, 0.4);
+      transition: all 1s;
+      transform-style: preserve-3d;
+    }
+    .image:hover img {
+      transform: rotateX(0deg) rotateZ(0deg) translate3d(0px, 0px, 0px);
+      box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+    }
+
+    .about-single {
+      background-image: linear-gradient(
+        to right,
+        rgba(223, 220, 206, 0.5),
+        rgba(235, 216, 166, 0.5)
+      );
+      //background-color: rgb(219, 216, 203);
+      //opacity: 0.5;
+      border-radius: 2%;
+      padding: 1em;
+
+      .about-single-text {
+        font-size: 1.1em;
+        color: rgba(59, 19, 7, 0.897);
+        //text-shadow: 0 0 0.1px rgb(255, 255, 255);
+        line-height: 1.3em;
+      }
     }
   }
   .section-two,

@@ -4,7 +4,9 @@
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100vh;
+  min-height: 800px;
   background-image: url(../assets/artist.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   background-size: cover;
 }
