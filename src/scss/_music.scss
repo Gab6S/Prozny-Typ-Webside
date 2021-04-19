@@ -29,7 +29,6 @@
     justify-content: center;
     align-items: center;
     padding: 25px 50px;
-    // box-sizing: border-box;
 
     .image {
       perspective: 3000px;
@@ -45,15 +44,30 @@
       height: 220px;
       //margin: 25px;
       position: relative;
-      left: 50%;
-      top: 50%;
+      left: 100%;
+      top: 100%;
 
       transform: rotateX(70deg) rotateZ(-60deg) translate3d(-120px, 0px, 70px);
       box-shadow: -80px 60px 15px 5px rgba(0, 0, 0, 0.4);
       transition: all 1s;
       transform-style: preserve-3d;
     }
+
+    #one,
+    #three {
+      position: relative;
+      left: -10%;
+      top: 120px;
+    }
+
+    #two,
+    #four {
+      position: relative;
+      right: -10%;
+      top: 120px;
+    }
     .image:hover img {
+      cursor: crosshair;
       transform: rotateX(0deg) rotateZ(0deg) translate3d(0px, 0px, 0px);
       box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
     }
@@ -80,5 +94,7 @@
   .section-two,
   .section-four {
     flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
   }
 }

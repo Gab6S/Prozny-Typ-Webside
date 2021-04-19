@@ -69,12 +69,14 @@ export const Music = () => {
         Próżny Typ - "Pozwolisz? Niech opadnie kurz."
       </p>
       <div className="section section-two">
-        <img
-          id="two"
-          src={photoTwo}
-          alt="man with match"
-          onClick={goToSecondSingle}
-        ></img>
+        <div className="image">
+          <img
+            id="two"
+            src={photoTwo}
+            alt="man with match"
+            onClick={goToSecondSingle}
+          ></img>
+        </div>
         <div className="about-single">
           <p className="about-single-text">
             „Pozwolisz? Niech opadnie kurz.” jest wyjątkowym utworem w projekcie
@@ -101,12 +103,14 @@ export const Music = () => {
       </div>
       <p className="title title-three">Próżny Typ - "Szczerze wyszukane"</p>
       <div className="section">
-        <img
-          id="three"
-          src={photoThree}
-          alt="hand"
-          onClick={goToThirdSingle}
-        ></img>
+        <div className="image">
+          <img
+            id="three"
+            src={photoThree}
+            alt="hand"
+            onClick={goToThirdSingle}
+          ></img>
+        </div>
         <div className="about-single">
           <p className="about-single-text">
             „Szczerze wyszukane” nawiązuje klimatem do pierwszego singla
@@ -130,12 +134,14 @@ export const Music = () => {
       </div>
       <p className="title title-four">Próżny Typ - "Potomek" </p>
       <div className="section section-four">
-        <img
-          id="four"
-          src={photoFour}
-          alt="man with baloon"
-          onClick={goToFourthSingle}
-        ></img>
+        <div className="image">
+          <img
+            id="four"
+            src={photoFour}
+            alt="man with baloon"
+            onClick={goToFourthSingle}
+          ></img>
+        </div>
         <div className="about-single">
           <p className="about-single-text">
             „Potomek” był pierwszym singlem z projektu Próżny Typ. Trzy lata
