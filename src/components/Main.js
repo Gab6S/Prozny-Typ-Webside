@@ -18,6 +18,7 @@ export const Main = () => {
     <div class="full-screen-bg">
       <Router>
         <Navigation />
+
         <Switch>
           <Route exact path="/">
             <ArtistName />
@@ -31,8 +32,8 @@ export const Main = () => {
           <Route path="/omnie" component={AboutMe}></Route>
           <Route path="/kontakt" component={Contact}></Route>
         </Switch>
+        <Footer />
       </Router>
-      {/* <Footer /> */}
     </div>
   );
 };

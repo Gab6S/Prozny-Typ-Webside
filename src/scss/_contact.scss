@@ -3,22 +3,23 @@
 .form-container {
   padding: 100px 400px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 
   flex-direction: column;
+  background-image: linear-gradient(
+    to right,
+    rgba(223, 220, 206, 0.5),
+    rgba(235, 216, 166, 0.5)
+  );
+  margin: 50px 0;
 
   .input-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0.4em 0;
+    margin: 0.4em 1em;
 
     .label {
-      //background-image: linear-gradient(
-      //     to right,
-      //     rgba(223, 220, 206, 0.5),
-      //     rgba(235, 216, 166, 0.5)
-      //   );
       color: black;
       font-family: $font-r;
       text-transform: uppercase;
@@ -26,15 +27,12 @@
     }
 
     .input {
-      border-top: none;
-      border-left: none;
-      border-right: none;
-      border-bottom: 1px solid white;
+      border: none;
       background-color: black;
       color: rgb(126, 106, 173);
-      //text-transform: uppercase;
       font-weight: bold;
       padding: 8px;
+      width: 20em;
     }
 
     .input:focus {
