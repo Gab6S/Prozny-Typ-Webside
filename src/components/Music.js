@@ -7,12 +7,37 @@ import photoOne from "../assets/Niewiele.jpg";
 import photoThree from "../assets/Wyszukane.jpg";
 
 export const Music = () => {
+  const goToFirstSingle = () => {
+    window.location.href =
+      "https://open.spotify.com/track/6cwdCQdAVCVDLMQs6jtNh7?si=775f9b77d5a74915";
+  };
+
+  const goToSecondSingle = () => {
+    window.location.href =
+      "https://open.spotify.com/track/1EDnx9kHxTeqzzuMc7mMPm?si=7dbfb0ac6d4141a0";
+  };
+
+  const goToThirdSingle = () => {
+    window.location.href =
+      "https://open.spotify.com/track/4GFP7gpcg4JkYNZM0NzW2A?si=c1b98edfcff84f14";
+  };
+
+  const goToFourthSingle = () => {
+    window.location.href =
+      "https://open.spotify.com/track/2gpmwjnCcJrhDx2ONKRZnz?si=6f3a677116734081";
+  };
+
   return (
     <section className="music-section">
       <p className="title title-one">Próżny Typ - "Tak niewiele się stało"</p>
       <div className="section">
         <div className="image">
-          <img src={photoOne} alt="naked lady"></img>
+          <img
+            id="one"
+            src={photoOne}
+            alt="naked lady"
+            onClick={goToFirstSingle}
+          ></img>
         </div>
         <div className="about-single">
           <p className="about-single-text">
@@ -44,7 +69,12 @@ export const Music = () => {
         Próżny Typ - "Pozwolisz? Niech opadnie kurz."
       </p>
       <div className="section section-two">
-        <img src={photoTwo} alt="man with match"></img>
+        <img
+          id="two"
+          src={photoTwo}
+          alt="man with match"
+          onClick={goToSecondSingle}
+        ></img>
         <div className="about-single">
           <p className="about-single-text">
             „Pozwolisz? Niech opadnie kurz.” jest wyjątkowym utworem w projekcie
@@ -71,7 +101,12 @@ export const Music = () => {
       </div>
       <p className="title title-three">Próżny Typ - "Szczerze wyszukane"</p>
       <div className="section">
-        <img src={photoThree} alt="hand"></img>
+        <img
+          id="three"
+          src={photoThree}
+          alt="hand"
+          onClick={goToThirdSingle}
+        ></img>
         <div className="about-single">
           <p className="about-single-text">
             „Szczerze wyszukane” nawiązuje klimatem do pierwszego singla
@@ -95,7 +130,12 @@ export const Music = () => {
       </div>
       <p className="title title-four">Próżny Typ - "Potomek" </p>
       <div className="section section-four">
-        <img src={photoFour} alt="man with baloon"></img>
+        <img
+          id="four"
+          src={photoFour}
+          alt="man with baloon"
+          onClick={goToFourthSingle}
+        ></img>
         <div className="about-single">
           <p className="about-single-text">
             „Potomek” był pierwszym singlem z projektu Próżny Typ. Trzy lata

@@ -32,7 +32,7 @@ export const Main = () => {
           <Route path="/omnie" component={AboutMe}></Route>
           <Route path="/kontakt" component={Contact}></Route>
         </Switch>
-        <Footer />
+        {/* <Footer /> */}
       </Router>
     </div>
   );
