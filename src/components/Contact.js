@@ -1,13 +1,12 @@
 import React from "react";
 import "../scss/_contact.scss";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
 
 import { useForm } from "react-hook-form";
-import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
-import { SMTPClient } from "emailjs-com";
+import emailjs from "emailjs-com";
+import { init } from "emailjs-com";
 
 const emailRegExp = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
@@ -24,108 +23,94 @@ const schema = yup.object().shape({
     .required(),
 });
 
-export const Contact = ({ setForm }) => {
-  const client = new SMTPClient({
-    user: "user",
-    password: "password",
-    host: "smtp.proznytyp@gmail.com",
-    ssl: true,
+export const Contact = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
   });
 
-  const sendAMessage = () => {
-    client.send(
-      {
-        text: "i hope this works",
-        from: "you <username@your-email.com>",
-        to: "proznytyp@gmail.com",
-        subject: "testing emailjs",
-      },
-      (err, message) => {
-        console.log(err || message);
-      }
+  const onSubmit = (data) => {
+    console.log(data);
+
+    const variables = {
+      name: data.name,
+      surname: data.surname,
+      email: data.email,
+      message: data.message,
+    };
+
+    emailjs.send(
+      "gmail",
+      "template_nrmeo3w",
+      variables,
+      "user_MJAPbH1NopLFcJEg5KFfb"
     );
   };
 
-  const methods = useForm({
-    resolver: yupResolver(schema),
-    mode: "onChange",
-  });
-
-  const { register, handleSubmit } = methods;
-  const onSubmit = (data) => console.log(data);
-
   return (
-    <Form className="form-container" onSubmit={handleSubmit(onSubmit)}>
-      <Form.Group controlId="formBasicText" className="input-row">
-        <Form.Label className="label">Imię</Form.Label>
-        <Form.Control
-          type="text"
-          placeholder="Imię"
-          className="input"
-          onChange={setForm}
-          ref={register}
-          value="AAA"
-          name="name"
-        />
-      </Form.Group>
+    <form className="form-container" onSubmit={handleSubmit(onSubmit)}>
+      <div className="input-row">
+        <label className="label">
+          Imię
+          <input
+            type="text"
+            placeholder="Imię"
+            className="input"
+            {...register("name")}
+          />
+          <p>{errors.name?.message}</p>
+        </label>
+      </div>
 
-      <Form.Group controlId="formBasicText" className="input-row">
-        <Form.Label className="label">Nazwisko</Form.Label>
-        <Form.Control
-          type="text"
-          placeholder="Nazwisko"
-          className="input"
-          onChange={setForm}
-          ref={register}
-          value="BBB"
-          name="surname"
-        />
-      </Form.Group>
+      <div className="input-row">
+        <label className="label">
+          Nazwisko
+          <input
+            type="text"
+            placeholder="Nazwisko"
+            className="input"
+            {...register("surname")}
+          />
+          <p>{errors.surname?.message}</p>
+        </label>
+      </div>
 
-      <Form.Group controlId="exampleForm.ControlInput1" className="input-row">
-        <Form.Label className="label">E-mail</Form.Label>
-        <Form.Control
-          type="email"
-          placeholder="E-mail"
-          className="input"
-          onChange={setForm}
-          ref={register}
-          value="CCC"
-          name="email"
-        />
-      </Form.Group>
+      <div className="input-row">
+        <label className="label">
+          E-mail
+          <input
+            type="email"
+            placeholder="E-mail"
+            className="input"
+            {...register("email")}
+          />
+          <p>{errors.email?.message}</p>
+        </label>
+      </div>
 
-      <Form.Group
-        controlId="exampleForm.ControlTextarea1"
-        className="input-row"
-      >
-        <Form.Label className="label">Wiadomość</Form.Label>
-        <Form.Control
-          as="textarea"
-          rows={3}
-          className="input"
-          onChange={setForm}
-          ref={register}
-          value="DDD"
-          name="message"
-        />
-      </Form.Group>
+      <div className="input-row">
+        <label className="label">
+          Wiadomość
+          <input
+            type="textarea"
+            rows={3}
+            className="input"
+            {...register("message")}
+          />
+          <p>{errors.message?.message}</p>
+        </label>
+      </div>
 
-      <Form.Group controlId="formBasicCheckbox" className="input-row">
-        <Form.Check
-          type="checkbox"
-          label="Zapisz się do newslettera"
-          className="checkbox"
-        />
-      </Form.Group>
-      <Button
-        variant="primary"
-        type="submit"
-        className="button"
-        onClick={sendAMessage}
-      >
-        Wyślij
-      </Button>
-    </Form>
+      <div className="input-row">
+        <label className="label">
+          Zapisz się do newslettera
+          <input type="checkbox" className="checkbox" />
+        </label>
+      </div>
+      <button className="button">Wyślij</button>
+    </form>
   );
 };
