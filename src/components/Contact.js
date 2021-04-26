@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../scss/_contact.scss";
 
 import { useForm } from "react-hook-form";
@@ -6,7 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
 import emailjs from "emailjs-com";
-import { init } from "emailjs-com";
+//import { init } from "emailjs-com";
 
 const emailRegExp = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
@@ -24,6 +24,8 @@ const schema = yup.object().shape({
 });
 
 export const Contact = () => {
+  const [buttonPopup, setButtonPopup] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -50,67 +52,78 @@ export const Contact = () => {
     );
   };
 
+  const onClick = () => {
+    setButtonPopup(true);
+  };
+
   return (
-    <form className="form-container" onSubmit={handleSubmit(onSubmit)}>
-      <div className="input-row">
-        <label className="label">
-          Imię
-          <input
-            type="text"
-            placeholder="Imię"
-            className="input"
-            {...register("name")}
-          />
-          <p>{errors.name?.message}</p>
-        </label>
-      </div>
+    <>
+      {!buttonPopup && (
+        <form className="form-container" onSubmit={handleSubmit(onSubmit)}>
+          <div className="input-row">
+            <label className="label">
+              Imię
+              <input
+                type="text"
+                placeholder="Imię"
+                className="input"
+                {...register("name")}
+              />
+              <p>{errors.name?.message}</p>
+            </label>
+          </div>
 
-      <div className="input-row">
-        <label className="label">
-          Nazwisko
-          <input
-            type="text"
-            placeholder="Nazwisko"
-            className="input"
-            {...register("surname")}
-          />
-          <p>{errors.surname?.message}</p>
-        </label>
-      </div>
+          <div className="input-row">
+            <label className="label">
+              Nazwisko
+              <input
+                type="text"
+                placeholder="Nazwisko"
+                className="input"
+                {...register("surname")}
+              />
+              <p>{errors.surname?.message}</p>
+            </label>
+          </div>
 
-      <div className="input-row">
-        <label className="label">
-          E-mail
-          <input
-            type="email"
-            placeholder="E-mail"
-            className="input"
-            {...register("email")}
-          />
-          <p>{errors.email?.message}</p>
-        </label>
-      </div>
+          <div className="input-row">
+            <label className="label">
+              E-mail
+              <input
+                type="email"
+                placeholder="E-mail"
+                className="input"
+                {...register("email")}
+              />
+              <p>{errors.email?.message}</p>
+            </label>
+          </div>
 
-      <div className="input-row">
-        <label className="label">
-          Wiadomość
-          <input
-            type="textarea"
-            rows={3}
-            className="input"
-            {...register("message")}
-          />
-          <p>{errors.message?.message}</p>
-        </label>
-      </div>
+          <div className="input-row">
+            <label className="label">
+              Wiadomość
+              <input
+                type="textarea"
+                rows={3}
+                className="input"
+                {...register("message")}
+              />
+              <p>{errors.message?.message}</p>
+            </label>
+          </div>
 
-      <div className="input-row">
-        <label className="label">
-          Zapisz się do newslettera
-          <input type="checkbox" className="checkbox" />
-        </label>
-      </div>
-      <button className="button">Wyślij</button>
-    </form>
+          <div className="input-row">
+            <label className="label">
+              Zapisz się do newslettera
+              <input type="checkbox" className="checkbox" />
+            </label>
+          </div>
+          <button className="button" onClick={onClick}>
+            Wyślij
+          </button>
+        </form>
+      )}
+      {buttonPopup && <p className="popup">Twoja wiadomość została wysłana!</p>}
+    </>
   );
 };
